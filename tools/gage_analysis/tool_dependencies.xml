@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<tool_dependency>
+    <package name="gage_analysis" version="20120204">
+        <repository  changeset_revision="" name="package_gage_20120204" owner="peterli" toolshed="" />
+    </package>
+    <package name="mummer" version="3.23">
+        <repository  changeset_revision="" name="package_mummer_3_23" owner="peterli" toolshed="" />
+    </package>
+</tool_dependency>
