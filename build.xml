@@ -61,7 +61,9 @@
             <fileset dir="${tools.dir}/gage_analysis"/>
         </copy>
         <mkdir dir="${build.dir}/gage_analysis/test-data"/>
-        <!--<copy file="${test-data.dir}/ref.fa" todir="${build.dir}/soap1/test-data"/>-->
+        <copy file="${test-data.dir}/phix174.fasta" todir="${build.dir}/gage_analysis/test-data"/>
+        <copy file="${test-data.dir}/soapdenovo2.phix174.contig" todir="${build.dir}/gage_analysis/test-data"/>
+        <copy file="${test-data.dir}/soapdenovo2.phix174.scafSeq" todir="${build.dir}/gage_analysis/test-data"/>
 
         <tar destfile="${build.dir}/gage_analysis.tar" basedir="${build.dir}/gage_analysis"/>
         <gzip destfile="${build.dir}/gage_analysis.tar.gz" src="${build.dir}/gage_analysis.tar"/>
