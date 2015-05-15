@@ -24,6 +24,18 @@
     <outputs>
         <data name="outfile" format="Tabular" label="gage.out"/>
     </outputs>
+    <tests>
+        <test>
+            <param name="ref_fasta" value="phix174.fasta"/>
+            <param name="contig_fasta" value="soapdenovo2.phix174.contig"/>
+            <param name="scaffold_fasta" value="soapdenovo2.phix174.scafSeq"/>
+            <output name="outfile">
+                <assert_contents>
+                    <has_line line="Contig Stats" />
+                </assert_contents>
+            </output>
+        </test>
+    </tests>
     <help>
 **What it does**
 
