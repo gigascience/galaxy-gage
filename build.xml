@@ -1,0 +1,75 @@
+<project name="galaxy_bgisoap" default="soap2" basedir=".">
+    <description>
+        A build file for generating Galaxy packages for individual tools.
+    </description>
+    <!-- Global properties for build -->
+    <property file="build.properties"/>
+    <property name="build.dir" location="./build"/>
+    <property name="dependencies.dir" location="./dependencies"/>
+    <property name="data.managers.dir" location="./data_managers"/>
+    <property name="test-data.dir" location="./test-data"/>
+    <property name="tool-data.dir" location="./tool-data"/>
+    <property name="tools.dir" location="./tools"/>
+
+    <target name="init">
+        <!-- Create time stamp -->
+        <tstamp/>
+        <!-- Check build dir -->
+        <available file="./${build.dir}" type="dir" property="build.found"/>
+    </target>
+
+    <target name="build" unless="build.found">
+        <mkdir dir="${build.dir}"/>
+    </target>
+
+    <target name="package_gage_20120204" depends="build">
+        <mkdir dir="${build.dir}/package_gage_20120204"/>
+        <copy todir="${build.dir}/package_gage_20120204">
+            <fileset dir="${dependencies.dir}/package_gage_20120204"/>
+        </copy>
+
+        <tar destfile="${build.dir}/package_gage_20120204.tar" basedir="${build.dir}/package_gage_20120204"/>
+        <gzip destfile="${build.dir}/package_gage_20120204.tar.gz" src="${build.dir}/package_gage_20120204.tar"/>
+        <delete file="${build.dir}/package_gage_20120204.tar"/>
+    </target>
+
+    <target name="package_gage_20120811" depends="build">
+        <mkdir dir="${build.dir}/package_gage_20120811"/>
+        <copy todir="${build.dir}/package_gage_20120811">
+            <fileset dir="${dependencies.dir}/package_gage_20120811"/>
+        </copy>
+
+        <tar destfile="${build.dir}/package_gage_20120811.tar" basedir="${build.dir}/package_gage_20120811"/>
+        <gzip destfile="${build.dir}/package_gage_20120811.tar.gz" src="${build.dir}/package_gage_20120811.tar"/>
+        <delete file="${build.dir}/package_gage_20120811.tar"/>
+    </target>
+
+    <target name="package_mummer_3_23" depends="build">
+        <mkdir dir="${build.dir}/package_mummer_3_23"/>
+        <copy todir="${build.dir}/package_mummer_3_23">
+            <fileset dir="${dependencies.dir}/package_mummer_3_23"/>
+        </copy>
+
+        <tar destfile="${build.dir}/package_mummer_3_23.tar" basedir="${build.dir}/package_mummer_3_23"/>
+        <gzip destfile="${build.dir}/package_mummer_3_23.tar.gz" src="${build.dir}/package_mummer_3_23.tar"/>
+        <delete file="${build.dir}/package_mummer_3_23.tar"/>
+    </target>
+
+    <target name="gage_analysis" depends="build">
+        <mkdir dir="${build.dir}/gage_analysis"/>
+        <copy todir="${build.dir}/gage_analysis">
+            <fileset dir="${tools.dir}/gage_analysis"/>
+        </copy>
+        <mkdir dir="${build.dir}/gage_analysis/test-data"/>
+        <!--<copy file="${test-data.dir}/ref.fa" todir="${build.dir}/soap1/test-data"/>-->
+
+        <tar destfile="${build.dir}/gage_analysis.tar" basedir="${build.dir}/gage_analysis"/>
+        <gzip destfile="${build.dir}/gage_analysis.tar.gz" src="${build.dir}/gage_analysis.tar"/>
+        <delete file="${build.dir}/gage_analysis.tar"/>
+    </target>
+
+    <target name="clean" description="clean up">
+        <!-- Delete build directory -->
+        <delete dir="${build.dir}"/>
+    </target>
+</project>
