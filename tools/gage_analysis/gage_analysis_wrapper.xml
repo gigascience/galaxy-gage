@@ -1,7 +1,7 @@
-<tool id="gage_analysis_wrapper" name="GAGE analysis" version="0.1">
+<tool id="gage_analysis_wrapper" name="GAGE analysis" version="0.2">
     <description>- calculate statistics for contigs and scaffolds</description>
     <requirements>
-        <requirement type="package" version="20120204">gage_analysis</requirement>
+        <requirement type="package" version="20120811">gage_analysis</requirement>
         <requirement type="package" version="3.23">mummer</requirement>
         <requirement type="set_environment">CLASS_PATH</requirement>
     </requirements>
