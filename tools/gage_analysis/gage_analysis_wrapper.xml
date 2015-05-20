@@ -17,9 +17,9 @@
         --outfile=$outfile
     </command>
     <inputs>
-        <param name="ref_fasta" type="data" format="input" label="Reference genome file in FASTA format"/>
-        <param name="contig_fasta" type="data" format="input" label="Contig file in FASTA format"/>
-        <param name="scaffold_fasta" type="data" format="input" label="Scaffold file in FASTA format"/>
+        <param name="ref_fasta" type="data" format="fasta" label="Reference genome file in FASTA format"/>
+        <param name="contig_fasta" type="data" format="fasta" label="Contig file in FASTA format"/>
+        <param name="scaffold_fasta" type="data" format="fasta" label="Scaffold file in FASTA format"/>
     </inputs>
     <outputs>
         <data name="outfile" format="Tabular" label="gage.out"/>
