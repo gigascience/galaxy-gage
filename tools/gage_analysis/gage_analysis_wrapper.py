@@ -93,7 +93,10 @@ def __main__():
             raise Exception, stderr
 
     except Exception, e:
-        raise Exception, 'Problem performing GAGE analysis process ' + str(e)
+        # The GAGE analysis code has problems with processing the ALLPATHS
+        # results from the R. sphaeroides data. No exception is raised when
+        # this happens otherwise the Galaxy job will fail.
+        print "Problem performing GAGE analysis process."
 
     # Clean up temp files
     # cleanup_before_exit(dirpath)
